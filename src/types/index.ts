@@ -11,3 +11,6 @@ export interface mySQL_Response {
     insertId: number,
     sqlMessage: string
 };
+export interface OrderCardProps extends newOrder {
+    isPreview?: Boolean
+}

@@ -23,7 +23,7 @@ const Home = () => {
     const handlePriceInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setPrice(Number(e.target.value));
     }
-    const handleReviewOrderClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const handleSubmitClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         fetch(`/api/orders`, {
             method: "POST",
@@ -58,7 +58,7 @@ const Home = () => {
                     <input placeholder="Price" type="number" className="form-control" onChange = {handlePriceInput} />
                 </div>
                 <div className="d-flex justify-content-end">
-                <button className="btn btn-outline-primary mt-2" onClick={handleReviewOrderClick}>Review Order</button>
+                <button className="btn btn-outline-primary mt-2" onClick={handleSubmitClick}>Submit Order</button>
                 </div>
             </form>
         </>

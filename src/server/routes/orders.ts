@@ -55,7 +55,7 @@ router.delete('/:id/delete', async (req, res) => {
     const history = useHistory();
     try {
         const delete_order = await db_orders.delete_order(id);
-        res.json({ message: "Order deleted!" });
+        res.json({ message: "Order deleted!", id });
         history.push('/api/orders');
     } catch (err) {
         res.status(500).json({ message: "Error! Not Found!", err });
