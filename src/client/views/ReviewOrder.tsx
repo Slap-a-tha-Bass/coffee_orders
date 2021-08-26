@@ -10,9 +10,9 @@ const ReviewOrder = () => {
     useEffect(() => {
         fetch(`/api/orders/${id}`)
         .then(res => res.json())
-        .then((data) => setReviewOrder(data));
-    });
-
+        .then((data) => setReviewOrder(data))
+        .catch(err => console.log(err));
+    }, [id]);
     return (
         <div>
             <OrderCard {...reviewOrder} />

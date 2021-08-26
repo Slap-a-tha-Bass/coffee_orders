@@ -3,7 +3,8 @@ export interface newOrder {
     first_name: string,
     drink_type: string,
     food_type: string,
-    price: Number
+    price: Number,
+    is_completed?: boolean
 };
 
 export interface mySQL_Response {
@@ -12,5 +13,5 @@ export interface mySQL_Response {
     sqlMessage: string
 };
 export interface OrderCardProps extends newOrder {
-    isPreview?: Boolean
+    isPreview?: boolean
 }

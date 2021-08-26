@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
 import Orders from './views/Orders';
 import ReviewOrder from './views/ReviewOrder';
+import EditOrder from './views/EditOrder';
 
 /* HOOK REACT EXAMPLE */
 const App = () => {
@@ -23,6 +24,9 @@ const App = () => {
 					</Route>
 					<Route exact path='/orders/:id'>
 						<ReviewOrder />
+					</Route>
+					<Route exact path='/orders/:id/edit'>
+						<EditOrder/>
 					</Route>
 					<Route path='*'>
 						<h1 className="display-1 text-warning">404, ya ding-dong</h1>

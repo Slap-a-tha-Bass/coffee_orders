@@ -8,7 +8,7 @@ const Orders = () => {
     useEffect(() => {
         fetch("/api/orders")
         .then((res) => res.json())
-        .then((data) => setOrders(data));
+        .then((data) => setOrders(data))
     }, []);
 
     return (

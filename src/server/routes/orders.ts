@@ -25,13 +25,13 @@ router.get('/:id', async (req, res) => {
 });
 router.post('/', async (req, res) => {
     const { first_name, drink_type, food_type, price } = req.body;
-    
+
     if (!first_name || !drink_type || !food_type || !price) {
-        return res.status(400).json({ message: "Error! Fill out all fields"});
+        return res.status(400).json({ message: "Error! Fill out all fields" });
     }
     const id = uuid_v4();
-    
-    const whole_order: newOrder = { id, first_name, drink_type, food_type, price } 
+
+    const whole_order: newOrder = { id, first_name, drink_type, food_type, price }
 
     try {
         const new_order = await db_orders.create_order(whole_order);
@@ -42,9 +42,10 @@ router.post('/', async (req, res) => {
 });
 router.put('/:id/edit', async (req, res) => {
     const { id } = req.params;
-    const { is_completed } = req.body;
+    const { first_name, drink_type, food_type, price, is_completed } = req.body;
+    const updated = { id, first_name, drink_type, food_type, price, is_completed }; 
     try {
-        const update_order = await db_orders.update_order(id, is_completed);
+        const update_order = await db_orders.update_order(id, updated);
         res.status(201).json(update_order);
     } catch (err) {
         res.status(500).json({ message: "Error! Not Found!", err });
@@ -52,11 +53,9 @@ router.put('/:id/edit', async (req, res) => {
 });
 router.delete('/:id/delete', async (req, res) => {
     const { id } = req.params;
-    const history = useHistory();
     try {
         const delete_order = await db_orders.delete_order(id);
-        res.json({ message: "Order deleted!", id });
-        history.push('/api/orders');
+        res.json({ message: "Order deleted!" });
     } catch (err) {
         res.status(500).json({ message: "Error! Not Found!", err });
     }
