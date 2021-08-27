@@ -1,6 +1,5 @@
 import * as express from 'express';
 import db_orders from '../db/queries/orders';
-import { useHistory } from 'react-router';
 import { v4 as uuid_v4 } from 'uuid';
 import { newOrder } from '../../types';
 

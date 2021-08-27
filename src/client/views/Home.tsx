@@ -40,7 +40,8 @@ const Home = () => {
     }
     return (
         <>
-            <form className="form-group bg-light col-md-6">
+            <h3 className="col-md-4 display-4 text-primary text-center border rounded shadow">Place order</h3>
+            <form className="form-group bg-light col-md-4">
                 <div>
                     <label>Name</label>
                     <input placeholder="First Name" type="text" className="form-control" onChange = {handleNameInput} />
